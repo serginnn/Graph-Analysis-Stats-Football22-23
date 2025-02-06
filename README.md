@@ -1,4 +1,4 @@
-# 💻 Implementação em Python
+# 💻 Graph-Analysis-Stats-Football22-23
 
 <div align="center">
    <img align="center" height="20px" width="80px" alt="Ubuntu" src="https://img.shields.io/badge/Ubuntu-E95420?logo=ubuntu&logoColor=white"/>
@@ -15,12 +15,11 @@
 
 ## 📚 Como Usar
 Aqui está uma breve orientação de como funciona o processo de execução e compilação.
-### 1. processo de clonagem do repositório
+### 1. Processo de clonagem do repositório
 Para clonar o repositório em seu computador, utiliza-se esse comando: 
 ```bash
 git clone https://github.com/serginnn/Graph-Analysis-Stats-Football22-23.git
 ```
-
 ### 2. Instalar as bibliotecas 
 Para instalar as bibliotecas necessárias para a execução do código, utilize os comandos:
 
@@ -30,21 +29,21 @@ Para instalar as bibliotecas necessárias para a execução do código, utilize 
   ```
 2.Instale as seguintes bibliotecas:
 ```bash
-   pip install pandas
-   pip install matplotlib
-   pip install networkx
-   pip install scikit-learn
-   pip install joblib
+   pip3 install pandas
+   pip3 install matplotlib
+   pip3 install networkx
+   pip3 install scikit-learn
+   pip3 install joblib
  ```
 
 <p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
 
-### 2. Execução
+### 3. Execução
 Para compilar e executar o programa, siga os passos abaixo:
 
-1. Abra seu terminal e navegue até o diretório `src/manager`:
+1. Abra seu terminal e navegue até o diretório da pasta:
     ```bash
-    cd src/manager
+    cd /caminho/para/Graph-Analysis-Stats-Football22-23
     ```
 2. Execute o comando `python3` para executar o programa:
     ```bash
@@ -60,21 +59,21 @@ Para compilar e executar o programa, siga os passos abaixo:
 
 <p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
 
-
-
-## 📈 Resultados
-Para mais informações 
-<p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
-
-
 ## ⛏ Python
 
 O Python é uma linguagem de programação de alto nível, que contém uma grande quantidade de bibliotecas otimizadas e poderosas. Dessa forma o python foi escolhio devido a facilidade de tratamento de grafos e facilidade no tratamento de base de dados, uma vez que como dito anteriormente possui bibliotecas importantes que facilitam a combina simplicidade e suporte a algoritmos avançados.
-1. NetworkX → Para criação, manipulação e análise de grafos. Como:
-2. Pandas → Manipulação de dados tabulares.
-3. 
+
+1. Pandas → Biblioteca para manipulação de dados tabulares.
+2. NetworkX → Biblioteca para criação, manipulação e análise de grafos.
+3. Matplotlib → Biblioteca para criação de gráficos e visualizações. Permite visualizar o grafo com `networkx.draw()`.  
+4. Scikit-Learn → Biblioteca para aprendizado de máquina e estatísticas. Permite calcular similaridade por cosseno entre jogadores e criar grafos baseados nisso.
+5. Joblib → Biblioteca para paralelização e armazenamento de modelos. Acelera processamentos intensivos, como algoritmos de comunidade em grafos grandes.
+
+## 📈 Resultados
+Para mais informações sobre resultados e metodologia acessar o artigo, `Desempenho de Jogadores de Futebol em Grafos: Um Algoritmo para Time de Destaques da Temporada`. Para acesso a base de dados utilizidada: *Dataset de Análise de Grafos no Futebol*. 2024. Disponível em: [https://zenodo.org/records/14813420](https://zenodo.org/records/14813420). DOI: [10.5281/zenodo.14813420](https://doi.org/10.5281/zenodo.14813420). Acesso em: 5 fev. 2025.
 
 <p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
+
 
 ## 🔧 Ambiente de Compilação
 Ambiente de compilação onde o programa foi executado:
@@ -85,6 +84,7 @@ Ambiente de compilação onde o programa foi executado:
 | Modelo do hardware| Acer Nitro 5- Modelo N20C1|
 | IDE             | Visual Studio Code 1.63.2|
 
+<p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
 
 ## 📧 Contato
 Para mais informações ou sugestões, sinta-se à vontade para entrar em contato:
