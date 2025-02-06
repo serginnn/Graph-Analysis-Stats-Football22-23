@@ -10,7 +10,8 @@
 
 - `plot_graphs.py`: Arquivo onde está presente o código para plotagem dos grafos.
 - `main.py`: Programa principal onde é realizado a escolha do Time Ideal com a utilização dos grafos.
-
+- Pasta `dataset`: Pasta onde contém a base de dados.
+- `Grafos`; Pasta onde serão polato os grafos.
 ## 📚 Como Usar
 Aqui está uma breve orientação de como funciona o processo de execução e compilação.
 ### 1. processo de clonagem do repositório
@@ -26,13 +27,20 @@ Para instalar as bibliotecas necessárias para a execução do código, utilize 
     ```bash
     cd src/python/src
     ```
-
-2. Execute o comando `python3` para executar o programa:
+2.Instale as seguintes bibliotecas:
+```bash
+   pip install pandas
+   pip install matplotlib
+   pip install networkx
+   pip install scikit-learn
+   pip install joblib
+ ```
+3. Execute o comando `python3` para executar o programa:
     ```bash
     python3 main.py
     ```
 
-3. O programa será executado e o resultado será exibido no terminal.
+3. O programa será executado e o resultado será exibido no terminal. Junto com os grafos que serão plotados e salvos como arquivos ".png".
 <p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
 
 ### 2. Execução
