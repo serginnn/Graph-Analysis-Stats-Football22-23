@@ -11,7 +11,7 @@
 - `plot_graphs.py`: Arquivo onde está presente o código para plotagem dos grafos.
 - `main.py`: Programa principal onde é realizado a escolha do Time Ideal com a utilização dos grafos.
 - `dataset`: Pasta onde contém a base de dados.
-- `graphs`: Pasta onde serão polato os grafos.
+- `graphs`: Pasta onde serão plotado os grafos.
 
 ## 📚 Como Usar
 Aqui está uma breve orientação de como funciona o processo de execução e compilação.
