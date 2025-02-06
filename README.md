@@ -10,8 +10,9 @@
 
 - `plot_graphs.py`: Arquivo onde está presente o código para plotagem dos grafos.
 - `main.py`: Programa principal onde é realizado a escolha do Time Ideal com a utilização dos grafos.
-- Pasta `dataset`: Pasta onde contém a base de dados.
-- `Grafos`; Pasta onde serão polato os grafos.
+- `dataset`: Pasta onde contém a base de dados.
+- `graphs`: Pasta onde serão polato os grafos.
+
 ## 📚 Como Usar
 Aqui está uma breve orientação de como funciona o processo de execução e compilação.
 ### 1. processo de clonagem do repositório
@@ -24,9 +25,9 @@ git clone https://github.com/serginnn/Graph-Analysis-Stats-Football22-23.git
 Para instalar as bibliotecas necessárias para a execução do código, utilize os comandos:
 
 1. Abra o terminal do Linux:
-    ```bash
-    cd src/python/src
-    ```
+ ```bash
+    Ctrl + Alt + T
+  ```
 2.Instale as seguintes bibliotecas:
 ```bash
    pip install pandas
@@ -35,12 +36,7 @@ Para instalar as bibliotecas necessárias para a execução do código, utilize 
    pip install scikit-learn
    pip install joblib
  ```
-3. Execute o comando `python3` para executar o programa:
-    ```bash
-    python3 main.py
-    ```
 
-3. O programa será executado e o resultado será exibido no terminal. Junto com os grafos que serão plotados e salvos como arquivos ".png".
 <p align="right"><a href="#-implementação-em-python">⬆️ Voltar para ao Início</a></p>
 
 ### 2. Execução
@@ -50,12 +46,11 @@ Para compilar e executar o programa, siga os passos abaixo:
     ```bash
     cd src/manager
     ```
-2. Execute o script em python:
+2. Execute o comando `python3` para executar o programa:
     ```bash
     python3 main.py
     ```
-
-3. O programa será executado e o gráfico de desempenho será gerado.
+3. O programa será executado e o resultado será exibido no terminal. Junto com os grafos que serão plotados e salvos como arquivos ".png".
 
 > [!CAUTION]
 > Caso não tenha o python instalado, instale-o através do comando:
