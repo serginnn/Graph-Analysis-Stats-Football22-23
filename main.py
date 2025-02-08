@@ -11,7 +11,7 @@ from plot_graph import plotar_grafo_completo, plotar_subgrafos
 filepath = "./dataset/2022-2023FootballPlayerStats.csv"
 dataset = pd.read_csv(filepath, sep=';', encoding='iso-8859-1')
 
-# Excluir jogadores da posição DFFW (lateral que joga de ponta)
+# Excluir jogadores da posição DFFW (aleatorio)
 dataset = dataset[dataset['Pos'] != 'DFFW']
 
 # Remover jogadores com menos de 400 minutos(para melhor análise dos jogadores)
@@ -19,9 +19,9 @@ dataset = dataset[dataset["Min"] >= 400]
 
 # Seleção de atributos relevantes
 dataset = dataset[[
-    "Player", "Pos", "Comp", "Min", "Goals", "G/Sh", "ShoPK", "PKatt", "PasTotCmp%",
+    "Player", "Pos", "Comp", "Min", "Goals", "G/Sh", "ShoPK", "PasTotCmp%",
     "Assists", "PasAss", "SCA", "GcaDrib", "TklDri%", "Int", "Err",
-    "ToTkl%", "CarPrgDist", "Fls", "CrdR", "CrdY", "AerWon%", "Crs", "GcaFld", "Off", "Recov", 
+    "ToTkl%", "CarPrgDist", "Fls", "CrdR", "CrdY", "AerWon%", "Crs", "GcaFld", "Recov", 
 ]]
 
 # Ponderação das ligas
@@ -33,13 +33,13 @@ ponderacao_liga = {
     "Ligue 1": 1.0,
 }
 
-# Preencher valores nulos com 0 (ou outro valor apropriado)
+# Preencher valores nulos com 0 
 dataset.fillna(0, inplace=True)
 
 # Função para calcular desempenho do jogador
 def calcular_desempenho(row):
     liga = row['Comp']
-    ponderacao = ponderacao_liga.get(liga, 1.0)  # Usar 1.0 se a liga não estiver no dicionário
+    ponderacao = ponderacao_liga.get(liga, 1.0)  # Ponderação da liga
     posicao = row['Pos']   
 
     # Cálculo do desempenho baseado na posição do jogador
@@ -86,9 +86,9 @@ scaler = MinMaxScaler()
 dataset["Desempenho"] = scaler.fit_transform(dataset[["Desempenho"]])
 
 # Limpeza das colunas já utilizadas
-dataset.drop(["Min", "Goals", "G/Sh", "ShoPK", "PKatt", "PasTotCmp%", "Assists", "PasAss", 
+dataset.drop(["Min", "Goals", "G/Sh", "ShoPK", "PasTotCmp%", "Assists", "PasAss", 
               "SCA", "GcaDrib", "TklDri%", "Int", "Err", "ToTkl%", "CarPrgDist", 
-              "Fls", "CrdR", "CrdY", "AerWon%", "Crs", "GcaFld", "Off", "Recov"], axis=1, inplace=True)
+              "Fls", "CrdR", "CrdY", "AerWon%", "Crs", "GcaFld", "Recov"], axis=1, inplace=True)
 
 
 # Criar o grafo separado por posição
@@ -107,7 +107,7 @@ for _, jogador in dataset.iterrows():
 for grafo in grafo_posicoes.values():
     grafo.clear_edges()
 
-# Selecionar as métricas de similaridade
+# Métrica de similaridade
 metricas_similaridade = ["Desempenho"]
 
 # Obter os vetores de desempenho
@@ -127,31 +127,30 @@ for posicao, grafo in grafo_posicoes.items():
     for i, pl1 in enumerate(jogadores):
         for j, pl2 in enumerate(jogadores):
             if i < j and similaridades[i, j] > 0.1:  # Usa similaridade como critério principal
-                peso_aresta = similaridades[i, j]  # Usa diretamente a similaridade
+                peso_aresta = similaridades[i, j]  
                 grafo.add_edge(pl1, pl2, peso=peso_aresta)
 
     grafo.remove_nodes_from(list(nx.isolates(grafo)))  # Remover nós isolados em cada subgrafo
     # Plotando os subgrafos por posição
     plotar_subgrafos({posicao: grafo}, nome_arquivo_prefix=f'graphs/subgrafo_{posicao}_antes_selecao_')
 
-
-# Selecionar os nós mais relevantes de cada subgrafo com base no desempenho
+# Número de nós relevantes a serem selecionados
 n_nos_relevantes = 11  
 nos_relevantes_posicoes = {}
 
 # Calcular a seleção dos melhores jogadores com base no desempenho
 for posicao, grafo in grafo_posicoes.items():
-    # Ordenar os jogadores dentro do subgrafo com base no desempenho (maior desempenho primeiro)
+    # Ordenar os jogadores dentro do subgrafo com base no desempenho e conexões (melhores primeiro)
     jogadores = list(grafo.nodes)
     jogadores_ordenados = sorted(
        jogadores, 
         key=lambda jogador: (
-            grafo.nodes[jogador]['desempenho'],  # Desempenho
+            grafo.nodes[jogador]['desempenho'], # Maior desempenho é preferido
             -nx.degree(grafo, jogador)  # Menos conexões (grau) é preferido
         ), 
         reverse=True
     )
-    # Selecionar os 'n_nos_relevantes' com maior desempenho
+    # Seleciona os 'n_nos_relevantes' com maior desempenho
     nos_relevantes = jogadores_ordenados[:n_nos_relevantes]
     nos_relevantes_posicoes[posicao] = nos_relevantes
 
@@ -169,13 +168,12 @@ for posicao, jogadores in nos_relevantes_posicoes.items():
 # Criar um mapeamento de índices para garantir que os índices do dataset filtrado correspondam aos da similaridade
 index_mapping = {player: idx for idx, player in enumerate(dataset["Player"])}
 
-# Arestas entre os jogadores mais relevantes (ajustando a parte do código)
+# Arestas entre os jogadores mais relevantes de diferentes posições
 for pos1, jogadores1 in nos_relevantes_posicoes.items():
     for pos2, jogadores2 in nos_relevantes_posicoes.items():
         if pos1 != pos2:
             for pl1 in jogadores1:
                 for pl2 in jogadores2:
-                    # Use o mapeamento de índices para acessar a matriz de similaridade
                     if pl1 in index_mapping and pl2 in index_mapping:
                         idx_pl1 = index_mapping[pl1]
                         idx_pl2 = index_mapping[pl2]

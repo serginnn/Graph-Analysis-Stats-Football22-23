@@ -24,7 +24,7 @@ def plotar_subgrafos(grafos, nome_arquivo_prefix):
         
         plt.figure(figsize=(24, 20))
 
-        # Layout mais espaçado para subgrafos densos
+        # Layout mais espaçado 
         posicoes = nx.spring_layout(grafo, k=0.8)
 
         nx.draw(
