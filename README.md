@@ -70,7 +70,7 @@ O Python é uma linguagem de programação de alto nível, que contém uma grand
 5. Joblib → Biblioteca para paralelização e armazenamento de modelos. Acelera processamentos intensivos, como algoritmos de comunidade em grafos grandes.
 
 ## 📈 Resultados
-Para mais informações sobre resultados e metodologia acessar o artigo, `Análise_de_desempenho_de_Jogadores_de_Futebol_com_Grafos__Um_Algoritmo_para_Time_Ideal_da_Temporada.pdf`. Para acesso a base de dados utilizidada: *Dataset de Análise de Grafos no Futebol*. 2024. Disponível em: [https://zenodo.org/records/14813420](https://zenodo.org/records/14813420). DOI: [10.5281/zenodo.14813420](https://doi.org/10.5281/zenodo.14813420). Acesso em: 5 fev. 2025.
+Para mais informações sobre resultados e metodologia acessar o artigo, [Artigo](Análise_de_desempenho_de_Jogadores_de_Futebol_com_Grafos__Um_Algoritmo_para_Time_Ideal_da_Temporada.pdf). Para acesso a base de dados utilizidada: *Dataset de Análise de Grafos no Futebol*. 2024. Disponível em: [https://zenodo.org/records/14813420](https://zenodo.org/records/14813420). DOI: [10.5281/zenodo.14813420](https://doi.org/10.5281/zenodo.14813420). Acesso em: 5 fev. 2025.
 
 > [!CAUTION]
 > As imagens dos Grafos não são exibidas tendo em vista o peso delas. Portanto para vizualizar o artigo completo é preiso realizar o dowload do pdf.
